@@ -1,0 +1,132 @@
+<html><head><base href="https://beninestate.com/"><title>BeninEstate: Sign In</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f7f8f9;
+  height: 100%;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.sign-in-form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  width: 300px;
+}
+.logo {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #008080;
+  margin-bottom: 20px;
+}
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+.input-group {
+  margin-bottom: 15px;
+}
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #008080;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.submit-btn:hover {
+  background-color: #006666;
+}
+.forgot-password {
+  text-align: center;
+  margin-top: 15px;
+}
+.forgot-password a {
+  color: #008080;
+  text-decoration: none;
+}
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+.create-account {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+.create-account a {
+  color: #008080;
+  text-decoration: none;
+  font-weight: bold;
+}
+.create-account a:hover {
+  text-decoration: underline;
+}
+</style></head>
+<body>
+  <div class="container">
+    <div class="sign-in-form">
+      <div class="logo">BeninEstate</div>
+      <h2>Sign In</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="submit-btn">Sign In</button>
+      </form>
+      <div class="forgot-password">
+        <a href="https://beninestate.com/forgot-password">Forgot your password?</a>
+      </div>
+      <div class="create-account">
+        Don't have an account? <a href="https://beninestate.com/create-account">Create one</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      // Here you would typically send this data to your server for authentication
+      // For this example, we'll just log it to the console and show an alert
+      console.log('Login attempt:', { email, password });
+      
+      alert('Login functionality would be implemented here. For security reasons, we do not process actual logins in this demo.');
+      
+      // Redirect to home page after "login"
+      window.location.href = 'https://beninestate.com/';
+    });
+  </script>
+</body></html>
