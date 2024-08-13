@@ -1,5 +1,6 @@
 <html><head><base href="https://beninestate.com/"><title>BeninEstate: Real Estate, Apartments, Mortgages & Home Values</title>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="shortcut icon" href="https://ezechielaz.github.io/benestat/1723454465996.webp" type="image/x-icon">
   <style>
 body, html {
   margin: 0;
@@ -9,17 +10,14 @@ body, html {
 }
 .header {
   background-color: white;
-  padding: 10px 20px;
+  padding: 8px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 .logo {
-  height: 24px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #008080;
+  height: 32px;
 }
 .sign-in {
   color: #008080;
@@ -145,7 +143,6 @@ body, html {
   font-size: 14px;
   color: #2a2a33;
 }
-/* For WebKit browsers */
 .listing-grid::-webkit-scrollbar {
   height: 8px;
 }
@@ -224,196 +221,278 @@ body, html {
   height: 20px;
   margin-right: 5px;
 }
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 15px;
+}
+.hamburger-menu span {
+  width: 24px;
+  height: 2px;
+  background: #008080;
+  transition: all 0.3s linear;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+}
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.loading-logo {
+  width: 150px;
+  height: auto;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.loading-animation {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+#main-content {
+  display: none;
+}
 </style></head>
 <body>
-  <div class="header">
-    <div class="logo">BeninEstate</div>
-    <div class="sign-in" onclick="hrefLocation("signin.html")" style="display: flex; align-items: center; cursor: pointer;">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#008080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px;">
-    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-    <circle cx="12" cy="7" r="4"></circle>
-  </svg>
-  Sign in
-</div>
+  <div id="loading-screen">
+    <img src="https://ezechielaz.github.io/benestat/1723454465996.webp" alt="BeninEstate Logo" class="loading-logo loading-animation">
   </div>
-  
-  <div class="hero">
-  <h1>Agents. Tours.<br>Loans. Homes.</h1>
-  <div class="search-bar">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#008080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;">
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-    <circle cx="12" cy="10" r="3"></circle>
-  </svg>
-  <input type="text" placeholder="Address, neighborhood, city...">
-  <div class="search-icon">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
-    <circle cx="11" cy="11" r="8"></circle>
-    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-  </svg>
-</div>
-</div>
-</div>
-  
-  <div class="continue-search">
-    <h2>Continue searching for:</h2>
-    <p>Cotonou, Benin, For Sale</p>
-    <small>25+ new listings</small>
-  </div>
-  
-  <div class="listing-grid">
-  <div class="listing">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Modern villa with pool in Fidjrossè, Cotonou">
-    <div class="listing-info">
-      <div class="price">150,000,000 FCFA</div>
-      <div>
-        <span class="benin-owned">BeninEstate</span>
-        <span class="listing-status">Active</span>
-      </div>
-    </div>
-  </div>
-  <div class="listing">
-    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Spacious apartment near the beach in Akpakpa, Cotonou">
-    <div class="listing-info">
-      <div class="price">80,000,000 FCFA</div>
-      <div class="listing-status">8 days on BeninEstate</div>
-    </div>
-  </div>
-  <div class="listing">
-    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Modern office space in Ganhi business district, Cotonou">
-    <div class="listing-info">
-      <div class="price">200,000,000 FCFA</div>
-      <div class="listing-status">New listing</div>
-    </div>
-  </div>
-  <div class="listing">
-    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Luxury penthouse with city view in Cadjehoun, Cotonou">
-    <div class="listing-info">
-      <div class="price">250,000,000 FCFA</div>
-      <div class="listing-status">Price reduced</div>
-    </div>
-  </div>
-</div>
 
-<div class="property-list">
-  <div class="property-card">
-    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Luxurious Villa in Fidjrossè" class="property-image">
-    <div class="property-details">
-      <div class="property-price">180,000,000 FCFA</div>
-      <div class="property-address">123 Ocean View, Fidjrossè, Cotonou</div>
-      <div class="property-features">
-        <div class="feature">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+  <div id="main-content">
+    <div class="header">
+      <div class="header-left">
+        <button class="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <img src="https://ezechielaz.github.io/benestat/1723454465996.webp" alt="BeninEstate Logo" class="logo">
+      </div>
+      <div class="sign-in" onclick="hrefLocation('signin.html')" style="display: flex; align-items: center; cursor: pointer;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#008080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px;">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        Sign in
+      </div>
+    </div>
+    
+    <div class="hero">
+      <h1>Agents. Tours.<br>Loans. Homes.</h1>
+      <div class="search-bar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#008080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <input type="text" placeholder="Address, neighborhood, city...">
+        <div class="search-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-          4 Bedrooms
-        </div>
-        <div class="feature">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          3 Bathrooms
-        </div>
-        <div class="feature">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="3" y1="9" x2="21" y2="9"></line>
-            <line x1="9" y1="21" x2="9" y2="9"></line>
-          </svg>
-          250 m²
         </div>
       </div>
     </div>
-  </div>
-  
-  <div class="property-card">
-    <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1084&q=80" alt="Modern Apartment in Akpakpa" class="property-image">
-    <div class="property-details">
-      <div class="property-price">95,000,000 FCFA</div>
-      <div class="property-address">456 Beachside Drive, Akpakpa, Cotonou</div>
-      <div class="property-features">
-        <div class="feature">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-          </svg>
-          3 Bedrooms
+    
+    <div class="continue-search">
+      <h2>Continue searching for:</h2>
+      <p>Cotonou, Benin, For Sale</p>
+      <small>25+ new listings</small>
+    </div>
+    
+    <div class="listing-grid">
+      <div class="listing">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Modern villa with pool in Fidjrossè, Cotonou">
+        <div class="listing-info">
+          <div class="price">150,000,000 FCFA</div>
+          <div>
+            <span class="benin-owned">BeninEstate</span>
+            <span class="listing-status">Active</span>
+          </div>
         </div>
-        <div class="feature">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path>
-            <path d="M16 2v4"></path>
-            <path d="M8 2v4"></path>
-            <path d="M3 10h18"></path>
-          </svg>
-          2 Bathrooms
+      </div>
+      <div class="listing">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Spacious apartment near the beach in Akpakpa, Cotonou">
+        <div class="listing-info">
+          <div class="price">80,000,000 FCFA</div>
+          <div class="listing-status">8 days on BeninEstate</div>
         </div>
-        <div class="feature">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="3" y1="9" x2="21" y2="9"></line>
-            <line x1="9" y1="21" x2="9" y2="9"></line>
-          </svg>
-          120 m²
+      </div>
+      <div class="listing">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Modern office space in Ganhi business district, Cotonou">
+        <div class="listing-info">
+          <div class="price">200,000,000 FCFA</div>
+          <div class="listing-status">New listing</div>
+        </div>
+      </div>
+      <div class="listing">
+        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Luxury penthouse with city view in Cadjehoun, Cotonou">
+        <div class="listing-info">
+          <div class="price">250,000,000 FCFA</div>
+          <div class="listing-status">Price reduced</div>
         </div>
       </div>
     </div>
-  </div>
-  
-  <div class="property-card">
-    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Commercial Space in Ganhi" class="property-image">
-    <div class="property-details">
-      <div class="property-price">220,000,000 FCFA</div>
-      <div class="property-address">789 Business Avenue, Ganhi, Cotonou</div>
-      <div class="property-features">
-        <div class="feature">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-          </svg>
-          5 Offices
-        </div>
-        <div class="feature">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-            <circle cx="9" cy="7" r="4"></circle>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-          </svg>
-          30 Capacity
-        </div>
-        <div class="feature">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="3" y1="9" x2="21" y2="9"></line>
-            <line x1="9" y1="21" x2="9" y2="9"></line>
-          </svg>
-          300 m²
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<script>
-  document.querySelector('.search-icon').addEventListener('click', function() {
-    alert('Searching for properties in Benin...');
-  });
+    <div class="property-list">
+      <div class="property-card">
+        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Luxurious Villa in Fidjrossè" class="property-image">
+        <div class="property-details">
+          <div class="property-price">180,000,000 FCFA</div>
+          <div class="property-address">123 Ocean View, Fidjrossè, Cotonou</div>
+          <div class="property-features">
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+              4 Bedrooms
+            </div>
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path>
+                <path d="M16 2v4"></path>
+                <path d="M8 2v4"></path>
+                <path d="M3 10h18"></path>
+              </svg>
+              3 Bathrooms
+            </div>
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+              250 m²
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="property-card">
+        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1084&q=80" alt="Modern Apartment in Akpakpa" class="property-image">
+        <div class="property-details">
+          <div class="property-price">95,000,000 FCFA</div>
+          <div class="property-address">456 Beachside Drive, Akpakpa, Cotonou</div>
+          <div class="property-features">
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+              3 Bedrooms
+            </div>
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path>
+                <path d="M16 2v4"></path>
+                <path d="M8 2v4"></path>
+                <path d="M3 10h18"></path>
+              </svg>
+              2 Bathrooms
+            </div>
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+              120 m²
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="property-card">
+        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Commercial Space in Ganhi" class="property-image">
+        <div class="property-details">
+          <div class="property-price">220,000,000 FCFA</div>
+          <div class="property-address">789 Business Avenue, Ganhi, Cotonou</div>
+          <div class="property-features">
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+              5 Offices
+            </div>
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              30 Capacity
+            </div>
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="current
+              Color" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+              300 m²
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  document.querySelectorAll('.listing, .property-card').forEach(item => {
-    item.addEventListener('click', function() {
-      const price = this.querySelector('.price, .property-price').textContent;
-      const address = this.querySelector('.property-address') ? this.querySelector('.property-address').textContent : 'Address not available';
-      const img = this.querySelector('img');
-      alert(`Property Details:\n${img.alt}\nPrice: ${price}\nAddress: ${address}\n\nContact our agents to schedule a viewing!`);
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        document.getElementById('loading-screen').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+      }, 3000); // 3 seconds loading time
     });
-  });
-   function hrefLocation(location) {
-   window.href.location = location;
-   }
-</script>
+
+    document.querySelector('.search-icon').addEventListener('click', function() {
+      alert('Searching for properties in Benin...');
+    });
+
+    document.querySelectorAll('.listing, .property-card').forEach(item => {
+      item.addEventListener('click', function() {
+        const price = this.querySelector('.price, .property-price').textContent;
+        const address = this.querySelector('.property-address') ? this.querySelector('.property-address').textContent : 'Address not available';
+        const img = this.querySelector('img');
+        alert(`Property Details:\n${img.alt}\nPrice: ${price}\nAddress: ${address}\n\nContact our agents to schedule a viewing!`);
+      });
+    });
+    function hrefLocation(location) {
+      window.location.href = location;
+    }
+
+    document.querySelector('.hamburger-menu').addEventListener('click', function() {
+      alert('Menu options coming soon!');
+    });
+  </script>
 </body></html>
-   
